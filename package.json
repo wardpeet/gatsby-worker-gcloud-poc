@@ -19,13 +19,6 @@
     "npm-run-all": "^4.1.5"
   },
   "scripts": {
-    "deploy:structured-log": "gcloud functions deploy worker-structured-log --entry-point STRUCTURED_LOG --runtime nodejs10 --trigger-http --region europe-west1",
-    "deploy:error-log": "gcloud functions deploy worker-error-log --entry-point ERROR_LOG --runtime nodejs10 --trigger-http --region europe-west1",
-    "deploy:image-processing": "gcloud functions deploy worker-image-processing --entry-point IMAGE_PROCESSING --runtime nodejs10 --trigger-http --region europe-west1",
-    "deploy:download-file": "gcloud functions deploy worker-download-file --entry-point DOWNLOAD_FILE --runtime nodejs10 --trigger-http --region europe-west1",
-    "deploy:generate-svg": "gcloud functions deploy worker-generate-svg --entry-point GENERATE_SVG --runtime nodejs10 --trigger-http --region europe-west1"
-  },
-  "scripts": {
     "deploy": "npm-run-all deploy:*",
     "deploy:structured-log": "gcloud functions deploy worker-structured-log --entry-point STRUCTURED_LOG --runtime nodejs10 --trigger-http --region europe-west1",
     "deploy:error-log": "gcloud functions deploy worker-error-log --entry-point ERROR_LOG --runtime nodejs10 --trigger-http --region europe-west1",
