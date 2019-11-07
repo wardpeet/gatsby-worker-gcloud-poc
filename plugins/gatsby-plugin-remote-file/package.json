@@ -1,0 +1,12 @@
+{
+  "name": "@wardpeet/gatsby-plugin-remote-file",
+  "version": "0.0.1",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "got": "^9.6.0",
+    "make-dir": "^3.0.0",
+    "p-defer": "^3.0.0",
+    "uuid": "^3.3.3"
+  }
+}

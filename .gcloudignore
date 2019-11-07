@@ -13,5 +13,6 @@
 .git
 .gitignore
 
+plugins/
 node_modules
 gatsby-worker-test-project-*
