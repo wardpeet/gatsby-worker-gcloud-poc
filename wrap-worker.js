@@ -15,7 +15,7 @@ const bucket = storage.bucket('gatsby-worker-test-site');
 
 const preWorker = async ({ inputPaths, outputDir, args }) => {
   await mkdir(path.join(tmpDir, 'input'));
-  await mkdir(path.join(tmpDir, 'output'));
+  await mkdir(path.join(tmpDir, 'output', outputDir));
 
   inputPaths = await Promise.all(inputPaths.map(async inputPath => {
     const ext = path.extname(inputPath);
