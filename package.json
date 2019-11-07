@@ -1,0 +1,36 @@
+{
+  "name": "gatsby-worker-gcloud-poc",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@google-cloud/storage": "^4.1.0",
+    "@wardpeet/gatsby-plugin-remote-file": "^0.0.1",
+    "@wardpeet/gatsby-plugin-sharp-worker": "^0.0.2",
+    "@wardpeet/gatsby-plugin-sqip-worker": "^0.0.1",
+    "@wardpeet/gatsby-plugin-structured-logging-worker": "^0.0.2",
+    "gatsby-core-utils": "^1.0.17",
+    "globby": "^10.0.1",
+    "make-dir": "^3.0.0",
+    "slash": "^3.0.0"
+  },
+  "devDependencies": {
+    "express": "^4.17.1",
+    "npm-run-all": "^4.1.5"
+  },
+  "scripts": {
+    "deploy:structured-log": "gcloud functions deploy worker-structured-log --entry-point STRUCTURED_LOG --runtime nodejs10 --trigger-http --region europe-west1",
+    "deploy:error-log": "gcloud functions deploy worker-error-log --entry-point ERROR_LOG --runtime nodejs10 --trigger-http --region europe-west1",
+    "deploy:image-processing": "gcloud functions deploy worker-image-processing --entry-point IMAGE_PROCESSING --runtime nodejs10 --trigger-http --region europe-west1",
+    "deploy:download-file": "gcloud functions deploy worker-download-file --entry-point DOWNLOAD_FILE --runtime nodejs10 --trigger-http --region europe-west1",
+    "deploy:generate-svg": "gcloud functions deploy worker-generate-svg --entry-point GENERATE_SVG --runtime nodejs10 --trigger-http --region europe-west1"
+  },
+  "scripts": {
+    "deploy": "npm-run-all deploy:*",
+    "deploy:structured-log": "gcloud functions deploy worker-structured-log --entry-point STRUCTURED_LOG --runtime nodejs10 --trigger-http --region europe-west1",
+    "deploy:error-log": "gcloud functions deploy worker-error-log --entry-point ERROR_LOG --runtime nodejs10 --trigger-http --region europe-west1",
+    "deploy:image-processing": "gcloud functions deploy worker-image-processing --entry-point IMAGE_PROCESSING --runtime nodejs10 --trigger-http --region europe-west1",
+    "deploy:download-file": "gcloud functions deploy worker-download-file --entry-point DOWNLOAD_FILE --runtime nodejs10 --trigger-http --region europe-west1",
+    "deploy:generate-svg": "gcloud functions deploy worker-generate-svg --entry-point GENERATE_SVG --runtime nodejs10 --trigger-http --region europe-west1"
+  }
+}
