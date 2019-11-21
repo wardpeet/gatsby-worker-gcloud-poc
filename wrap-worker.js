@@ -44,7 +44,7 @@ module.exports = (workerFn) => {
     const newArgs = await preWorker({ inputPaths, outputDir, args });
 
     try {
-      const result = await workerFn(newArgs.inputPaths, newArgs.outputDir, newArgs.args)
+      const result = await workerFn(newArgs)
 
       const paths = await globby('**/*', {
         cwd: newArgs.outputDir,

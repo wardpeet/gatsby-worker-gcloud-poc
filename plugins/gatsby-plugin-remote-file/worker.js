@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const got = require('got');
 
-exports.DOWNLOAD_FILE = (inputPaths, outputDir, args) => {
+exports.DOWNLOAD_FILE = ({ outputDir, args }) => {
   if (args.throwError) {
     throw new Error('Oh no this function failed');
   }

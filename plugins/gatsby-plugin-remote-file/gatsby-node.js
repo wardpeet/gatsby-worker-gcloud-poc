@@ -2,6 +2,8 @@ const path = require('path');
 const pDefer = require('p-defer');
 const makeDir = require('make-dir');
 const uuid = require('uuid/v4');
+const fs = require('fs');
+const crypto = require('crypto');
 const package = require('./package.json');
 
 let reporter;
@@ -23,10 +25,26 @@ process.on('message', (msg) => {
   }
 })
 
+const hashFile = (filePath) => new Promise((resolve, reject) => {
+  const hasher = crypto.createHash('sha1');
+  fs.createReadStream(filePath)
+    // TODO: Use `Stream.pipeline` when targeting Node.js 12.
+    .on('error', reject)
+    .pipe(hasher)
+    .on('error', reject)
+    .on('finish', () => {
+      const { buffer } = hasher.read();
+      resolve(Buffer.from(buffer).toString('hex'));
+    });
+});
+
 const createJob = async (type, { inputPaths, outputDir, args }) => {
-  inputPaths = inputPaths.map(file => {
-    return path.relative(process.cwd(), file)
-  });
+  inputPaths = await Promise.all(inputPaths.map(async file => {
+    return {
+      path: path.relative(process.cwd(), file),
+      contentDigest: await hashFile(path.resolve(file))
+    }
+  }));
 
   outputDir = path.relative(process.cwd(), outputDir);
 
