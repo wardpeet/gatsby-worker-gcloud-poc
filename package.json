@@ -4,12 +4,12 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
-    "@google-cloud/storage": "^4.1.0",
-    "@wardpeet/gatsby-plugin-remote-file": "^0.0.1",
-    "@wardpeet/gatsby-plugin-sharp-worker": "^0.0.2",
-    "@wardpeet/gatsby-plugin-sqip-worker": "^0.0.1",
-    "@wardpeet/gatsby-plugin-structured-logging-worker": "^0.0.2",
-    "gatsby-core-utils": "^1.0.17",
+    "@google-cloud/storage": "^4.1.3",
+    "@wardpeet/gatsby-plugin-remote-file": "^0.0.6",
+    "@wardpeet/gatsby-plugin-sharp-worker": "^0.0.6",
+    "@wardpeet/gatsby-plugin-sqip-worker": "^0.0.6",
+    "@wardpeet/gatsby-plugin-structured-logging-worker": "^0.0.6",
+    "gatsby-core-utils": "^1.0.20",
     "globby": "^10.0.1",
     "make-dir": "^3.0.0",
     "slash": "^3.0.0"
