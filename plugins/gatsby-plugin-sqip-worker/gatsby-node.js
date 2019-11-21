@@ -76,7 +76,10 @@ const createJob = async (type, { inputPaths, outputDir, args }) => {
       reporter.panic(err);
     }
   } else {
-    inputPaths = inputPaths.map(inputPath => path.join(process.cwd(), inputPath.path))
+    inputPaths = inputPaths.map(inputPath => ({
+      ...inputPath,
+      path: path.join(process.cwd(), inputPath.path),
+    }))
     outputDir = path.resolve(process.cwd(), outputDir)
 
     await makeDir(outputDir);
