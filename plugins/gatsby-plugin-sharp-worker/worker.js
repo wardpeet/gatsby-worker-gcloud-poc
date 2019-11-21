@@ -12,7 +12,7 @@ exports.IMAGE_PROCESSING = async ({ inputPaths, outputDir, args }) => {
   outputDir = path.join(outputDir, args.digest);
   await makeDir(outputDir);
 
-  const parsedPath = path.parse(inputPaths[0]);
+  const parsedPath = path.parse(inputPaths[0].path);
   const ouputFiles = [
     path.join(outputDir, `${parsedPath.name}-100x100${parsedPath.ext}`),
     path.join(outputDir, `${parsedPath.name}-200x200${parsedPath.ext}`),
@@ -21,6 +21,6 @@ exports.IMAGE_PROCESSING = async ({ inputPaths, outputDir, args }) => {
   await sleep(2000)
 
   ouputFiles.map((file) => {
-    fs.copyFileSync(inputPaths[0], file);
+    fs.copyFileSync(inputPaths[0].path, file);
   });
 }

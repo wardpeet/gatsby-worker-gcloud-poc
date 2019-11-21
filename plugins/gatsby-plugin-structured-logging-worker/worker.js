@@ -1,5 +1,5 @@
 
-exports.STRUCTURED_LOG = ({ inputPaths, outputDir, args }) => {
+exports.STRUCTURED_LOG = () => {
   throw {
     id: `85907`,
     context: {
@@ -8,6 +8,6 @@ exports.STRUCTURED_LOG = ({ inputPaths, outputDir, args }) => {
   }
 }
 
-exports.ERROR_LOG = ({ inputPaths, outputDir, args }) => {
+exports.ERROR_LOG = () => {
   throw new Error('error from a worker');
 }
