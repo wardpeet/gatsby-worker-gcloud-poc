@@ -6,5 +6,7 @@ exports.GENERATE_SVG = ({ inputPaths, args }) => {
     throw new Error('Oh no this function failed');
   }
 
-  return path.basename(inputPaths[0].path);
+  return {
+    result: path.basename(inputPaths[0].path),
+  }
 }

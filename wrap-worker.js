@@ -18,8 +18,8 @@ const preWorker = async ({ inputPaths, outputDir, args }) => {
   await mkdir(path.join(tmpDir, 'output', outputDir));
 
   inputPaths = await Promise.all(inputPaths.map(async inputPath => {
-    const ext = path.extname(inputPath);
-    const hashedPath = `${createContentDigest(inputPath)}${ext}`;
+    const ext = path.extname(inputPath.path);
+    const hashedPath = `${createContentDigest(inputPath.path)}${ext}`;
     const downloadPath = path.join(tmpDir, 'input', hashedPath);
 
     await bucket.file(hashedPath)

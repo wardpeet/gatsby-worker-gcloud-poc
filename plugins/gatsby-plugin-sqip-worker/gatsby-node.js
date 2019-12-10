@@ -85,8 +85,7 @@ const createJob = async (type, { inputPaths, outputDir, args }) => {
     await makeDir(outputDir);
 
     try {
-      const result = await require('./worker')[type]({ inputPaths, outputDir, args });
-      return result;
+      return await require('./gatsby-worker')[type]({ inputPaths, outputDir, args });
     } catch (err) {
       reporter.panic(err);
     }
